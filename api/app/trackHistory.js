@@ -8,7 +8,7 @@ const authorization = require('../middleware/Authorization');
 router.get('/',authorization,async (req,res)=>{
 
    try{
-       const trackData = await TrackHistory.findOne().populate('user').populate('track');
+       const trackData = await TrackHistory.find().populate('user').populate('track');
        res.send(trackData)
    }catch (error) {
        res.status(500).send({error: error})
